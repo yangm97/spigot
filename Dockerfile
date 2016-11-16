@@ -3,8 +3,8 @@ MAINTAINER Yan Minari <yangm97@gmail.com>
 
 WORKDIR /opt/app/
 
-COPY spigot-*.jar /var/srv/spigot.jar
-
 RUN echo eula=true > /opt/app/eula.txt
+
+COPY spigot-*.jar /var/srv/spigot.jar
 
 CMD ["java", "-jar", "/var/srv/spigot.jar"]
