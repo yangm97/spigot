@@ -1,4 +1,4 @@
-FROM openjre:8-jre-alpine
+FROM openjdk:8-jre-alpine
 MAINTAINER Yan Minari <yangm97@gmail.com>
 
 COPY spigot-*.jar /var/srv/spigot.jar
