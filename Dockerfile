@@ -1,10 +1,15 @@
-FROM openjdk:8-jre-alpine
+FROM openjre:8-jre-alpine
 MAINTAINER Yan Minari <yangm97@gmail.com>
 
-WORKDIR /opt/app/
-
-RUN echo eula=true > /opt/app/eula.txt
-
 COPY spigot-*.jar /var/srv/spigot.jar
+
+WORKDIR /opt/app
+
+RUN echo eula=true > /opt/app/eula.txt && \
+    chown nobody /opt/app
+
+VOLUME /opt/app
+
+USER nobody
 
 CMD ["java", "-jar", "/var/srv/spigot.jar"]
