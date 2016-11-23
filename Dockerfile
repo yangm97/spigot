@@ -6,7 +6,7 @@ COPY spigot-*.jar /var/srv/spigot.jar
 WORKDIR /opt/app
 
 RUN echo eula=true > /opt/app/eula.txt && \
-    chown nobody /opt/app
+    chown -R nobody /opt/app
 
 VOLUME /opt/app
 
