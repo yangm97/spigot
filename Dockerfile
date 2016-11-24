@@ -5,11 +5,12 @@ COPY spigot-*.jar /var/srv/spigot.jar
 
 WORKDIR /opt/app
 
-RUN echo eula=true > /opt/app/eula.txt && \
-    chown -R nobody:nogroup /opt/app
+USER nobody
+
+RUN echo eula=true > eula.txt && \
+    mkdir world world_nether world_the_end 
+#    /\ This is a workaround. Spigot, somehow, manages to screw the permissions when creating these directories by itself if running as a docker-compose service. 
 
 VOLUME /opt/app
-
-USER nobody
 
 CMD ["java", "-jar", "/var/srv/spigot.jar"]
